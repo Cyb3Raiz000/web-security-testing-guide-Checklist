@@ -1,5 +1,12 @@
 # OWASP WSTG Pentest Checklist
 
+<div align="center">
+  <img src="assets/wstg_checklist.gif" alt="SUCCESS Demo" width="900">
+  <p align="center">
+    <b>Figure: Demo </b>
+  </p>
+</div>
+
 > 12 categories. ~100 test cases. Full web app pentest coverage.
 
 ---
