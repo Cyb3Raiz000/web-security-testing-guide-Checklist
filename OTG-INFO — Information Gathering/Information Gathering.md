@@ -52,16 +52,13 @@ Set-Cookie: rack.session=...          ← Ruby/Rack
 
 METHOD 2 — Banner Grabbing
 Netcat
-bashnc -v target.com 80
-GET / HTTP/1.0
-[press Enter twice]
+nc -v target.com 80
+
 Telnet
-bashtelnet target.com 80
-GET / HTTP/1.0
-Host: target.com
-[Enter twice]
+telnet target.com 80
+
 Nmap banner grab
-bash# Service version detection
+# Service version detection
 nmap -sV target.com
 
 # Aggressive version + OS
@@ -78,7 +75,7 @@ nmap --script banner target.com
 
 METHOD 3 — Automated Tools
 WhatWeb
-bash# Install
+# Install
 sudo apt install whatweb
 
 # Basic scan
