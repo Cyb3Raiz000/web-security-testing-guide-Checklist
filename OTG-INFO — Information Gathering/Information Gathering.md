@@ -23,13 +23,13 @@ Analyze the headers returned by the server for versioning and framework details.
 
 ```bash
 # Basic header grab
-curl -I [https://target.com](https://target.com)
+curl -I https://target.com
 
 # Follow redirects + verbose mode
-curl -Iv [https://target.com](https://target.com)
+curl -Iv https://target.com
 
 # Custom user agent to bypass simple filters
-curl -I -A "Mozilla/5.0" [https://target.com](https://target.com)
+curl -I -A "Mozilla/5.0" https://target.com
 
 # Disable redirect follow
 curl -I --max-redirs 0 https://target.com
