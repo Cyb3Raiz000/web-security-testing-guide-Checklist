@@ -307,10 +307,11 @@ FULL WORKFLOW — INFO-02
 
 DOCUMENT FINDINGS
 FindingRiskNext TestServer version exposedMEDIUMSearch CVEs for that versionPHP/ASP version in headersMEDIUMINPV-05, INPV-11Stack trace in error pageHIGHERRH-01Old server version (EOL)CRITICALCONF-01, exploit CVEsCDN detected (Cloudflare)INFOBypass → find real IP
-
+```
 DEFENSE (what good server looks like)
 Server: (blank or generic)          ✅
 X-Powered-By: (removed)             ✅
 Errors: custom 404/500 pages        ✅
 Cookies: generic names              ✅
 Headers: security headers present   ✅
+```
