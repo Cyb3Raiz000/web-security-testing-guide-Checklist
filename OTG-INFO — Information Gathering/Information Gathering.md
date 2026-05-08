@@ -1,10 +1,11 @@
-##WSTG-INFO-02 — Web Server Fingerprint (Headers & Banners)
+## WSTG-INFO-02 — Web Server Fingerprint (Headers & Banners)
 
-###What Is It?
+### What Is It?
 Identify the web server technology, version, and underlying stack by analyzing HTTP response headers, error pages, banners, and behavioral patterns. Goal: know what you're attacking before you attack it.
 
-###WHY IT MATTERS
+### WHY IT MATTERS
 FindWhat attacker does with itApache 2.4.49Search CVE-2021-41773 (path traversal)PHP/7.2.0Search known RCE CVEs for that versionX-Powered-By: ASP.NETTarget .NET-specific attacksServer: IIS/6.0Ancient — high chance of exploits
+
 ```
 METHOD 1 — HTTP Response Headers
 Manual curl
