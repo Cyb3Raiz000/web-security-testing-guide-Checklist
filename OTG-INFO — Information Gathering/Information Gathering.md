@@ -1,3 +1,4 @@
+## WSTG-INFO-01 Search engine recon (Google dorks, Shodan)
 ## EXPOSED FILES
 ```
 site:target.com filetype:env
@@ -83,8 +84,8 @@ Identify the web server technology, version, and underlying stack by analyzing H
 ### WHY IT MATTERS
 FindWhat attacker does with itApache 2.4.49Search CVE-2021-41773 (path traversal)PHP/7.2.0Search known RCE CVEs for that versionX-Powered-By: ASP.NETTarget .NET-specific attacksServer: IIS/6.0Ancient — high chance of exploits
 
-METHOD 1 — HTTP Response Headers
 
+METHOD 1 — HTTP Response Headers
 Manual curl
 # Basic header grab
 ```
@@ -128,6 +129,7 @@ Set-Cookie: JSESSIONID=...            ← Java/Tomcat
 Set-Cookie: ASP.NET_SessionId=...     ← ASP.NET
 Set-Cookie: rack.session=...          ← Ruby/Rack
 </p>
+
 
 METHOD 2 — Banner Grabbing
 Netcat
@@ -225,6 +227,7 @@ httpx -u target.com -tech-detect -status-code -title -server -content-type
 cat hosts.txt | httpx -tech-detect -server -title
 ```
 
+
 METHOD 4 — Error Page Analysis
 Trigger error pages — they often leak server info.
 # 404 page
@@ -259,6 +262,7 @@ curl -I https://target.com | grep -i "set-cookie"
   Cookie NameFrameworkPHPSESSIDPHPJSESSIONIDJava (Tomcat/Spring)ASP.NET_SessionIdASP.NET_rails_sessionRuby on Railslaravel_sessionLaravelci_sessionCodeIgniterwordpress_WordPresswp-settings-WordPresscsrftokenDjango
 </p>
 
+
 METHOD 6 — File Extension Probing
 # Try common extensions to identify backend
 ```
@@ -269,6 +273,7 @@ curl -o /dev/null -sw "%{http_code}" https://target.com/index.jsp
 curl -o /dev/null -sw "%{http_code}" https://target.com/index.cfm
 ```
 200 or redirect = that backend exists.
+
 
 METHOD 7 — Favicon Hash (Shodan)
 Every framework has a default favicon. Hash it → search Shodan.
