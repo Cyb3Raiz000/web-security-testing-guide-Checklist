@@ -1,34 +1,23 @@
+##WSTG-INFO-02 — Web Server Fingerprint (Headers & Banners)
 
-## WSTG-INFO-02 — Web Server Fingerprint (Headers & Banners)
+###What Is It?
+Identify the web server technology, version, and underlying stack by analyzing HTTP response headers, error pages, banners, and behavioral patterns. Goal: know what you're attacking before you attack it.
 
-This guide outlines techniques for identifying web server technology, versions, and underlying stacks by analyzing HTTP response headers, error pages, banners, and behavioral patterns.
-
-## 🎯 Purpose
-The goal is to map the target's technology stack to identify specific vulnerabilities (CVEs) before launching an attack.
-
-## 🚀 Why It Matters
-| Discovery | Potential Impact |
-| :--- | :--- |
-| **Apache 2.4.49** | Search CVE-2021-41773 (Path Traversal) |
-| **PHP/7.2.0** | Search known RCE CVEs for that version |
-| **X-Powered-By: ASP.NET** | Target .NET-specific attack vectors |
-| **Server: IIS/6.0** | Legacy system - high probability of exploit availability |
-
----
-
-## 🛠 Methodology
-
-### 1. HTTP Response Headers
-Analyze the headers returned by the server for versioning and framework details.
-
-```bash
-# Basic header grab
+###WHY IT MATTERS
+FindWhat attacker does with itApache 2.4.49Search CVE-2021-41773 (path traversal)PHP/7.2.0Search known RCE CVEs for that versionX-Powered-By: ASP.NETTarget .NET-specific attacksServer: IIS/6.0Ancient — high chance of exploits
+```
+METHOD 1 — HTTP Response Headers
+Manual curl
+bash# Basic header grab
 curl -I https://target.com
 
-# Follow redirects + verbose mode
+# Follow redirects + verbose
 curl -Iv https://target.com
 
-# Custom user agent to bypass simple filters
+# All headers including response body
+curl -v https://target.com 2>&1 | head -50
+
+# Custom user agent
 curl -I -A "Mozilla/5.0" https://target.com
 
 # Disable redirect follow
@@ -75,7 +64,7 @@ nmap --script banner target.com
 
 METHOD 3 — Automated Tools
 WhatWeb
-# Install
+bash# Install
 sudo apt install whatweb
 
 # Basic scan
