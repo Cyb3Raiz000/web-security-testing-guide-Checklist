@@ -1,6 +1,5 @@
 
-# Content for the README.md based on the provided document
-content = """# WSTG-INFO-02 — Web Server Fingerprint (Headers & Banners)
+"""# WSTG-INFO-02 — Web Server Fingerprint (Headers & Banners)
 
 This guide outlines techniques for identifying web server technology, versions, and underlying stacks by analyzing HTTP response headers, error pages, banners, and behavioral patterns.
 
